@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="shopping" namespace="/jsp/shopping" extends="common">
+		<action name="*CustomerSale" class="com.somapait.shoppingonline.web.shopping.customers.sale.action.CustomerSaleAction" method="{1}">
+			<result name="search">/jsp/shopping/customers/sale/productListSearch.jsp</result>
+			<result name="addEdit">/jsp/shopping/customers/sale/cartAndOrderAdd.jsp</result>
+			<result name="mycart">/jsp/shopping/customers/sale/cartAndOrderAdd.jsp</result>
+			<result name="orderComplete">/jsp/shopping/customers/sale/cartAndOrderComplete.jsp</result>
+			<result name="showPic">/showPicture.jsp</result>
+		</action>
+		
+		<action name="*AdminSale" class="com.somapait.shoppingonline.web.shopping.admin.sale.action.AdminSaleAction" method="{1}" >
+		    <result name="search">/jsp/shopping/admin/sale/orderdSearch.jsp</result>
+		    <result name="gotoView">/jsp/shopping/admin/sale/shippingEditView.jsp</result>
+		</action>
+	</package>
+</struts>

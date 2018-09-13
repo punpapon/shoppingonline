@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<parameter>
+    <application>
+        <applicationLocale>th</applicationLocale>
+        <databaseGoldenGateLocale>th</databaseGoldenGateLocale>
+        <databaseLocale>en</databaseLocale>
+        <defaultSecUserId>0</defaultSecUserId>
+        <lpp>10,20,30,40,50,60,70,80,90,100</lpp>
+        <maxExceed>10</maxExceed>
+        <maxExceedReport>5</maxExceedReport>
+        <title>Shopping Online Web</title>
+    </application>
+    <database>
+        <jndi>true</jndi>
+        <lookup>jdbc/PG_EXAM</lookup>
+        <schemas>[PG_EXAM]:PG_EXAM_SHOPPING</schemas>
+    </database>
+    <filename>E:\P_WebApplication\wpTemplate\shoppingonline/WebContent/WEB-INF/parameter.xml</filename>
+</parameter>

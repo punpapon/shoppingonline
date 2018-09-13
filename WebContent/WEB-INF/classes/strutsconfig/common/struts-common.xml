@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="common" namespace="/" extends="json-default">
+		<interceptors>
+			<interceptor name="LoginInterceptor" class="com.somapait.shoppingonline.web.interceptor.LoginInterceptor" />
+			<interceptor name="TokenInterceptor" class="com.somapait.shoppingonline.web.interceptor.TokenInterceptor" />
+			<interceptor-stack name="DefaultInterceptor">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="LoginInterceptor"/>
+				<interceptor-ref name="TokenInterceptor">
+               		<param name="excludeMethods">*</param> <!-- เมธอดที่ไม่ทำการตรวจสอบ token ถ้าไม่ใส่ ทุกเมธอดจะถูกตรวจสอบทั้งหมด-->
+               		<param name="includeMethods">add*,edit*,delete*,update*</param><!-- เมธอดที่ทำการตรวจสอบ token -->
+    			</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="DefaultInterceptor"></default-interceptor-ref>
+		<global-results>
+			<result name="mainpage">/jsp/mainpage.jsp</result>
+			<result name="home" type="redirectAction">
+            	<param name="actionName">initLogin</param>
+            	<param name="namespace">/jsp/security</param>
+        	</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="com.somapait.exception.AuthorizationException" result="home" />
+			<exception-mapping exception="java.lang.NullPointerException" result="home" />
+		</global-exception-mappings>
+	</package>
+</struts>
